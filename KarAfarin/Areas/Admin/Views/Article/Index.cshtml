@@ -1,0 +1,114 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "وبلاگ";
+    Layout = "~/Areas/Admin/Views/_AdminDashboard.cshtml";
+}
+
+
+<link asp-append-version="true" href="~/lib/summernote/summernote-lite.min.css" rel="stylesheet">
+<link asp-append-version="true" href="~/lib/tagify/tagify.css" rel="stylesheet" />
+
+<script asp-append-version="true" src="~/lib/summernote/summernote-lite.min.js"></script>
+<script src="~/lib/summernote/summernote-fa-IR.min.js"></script>
+
+<script asp-append-version="true" src="~/lib/tagify/tagify.js"></script>
+
+<script asp-append-version="true" src="~/admin/js/pages/article/article.js"></script>
+
+
+
+<div class="main-container container-fluid">
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+
+            <div id="Div_Create_Update">
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-body pb-2">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" id="txt_title" autocomplete="off" onchange="ChangeUrl(1)" class="form-control" placeholder="جستجو بر اساس عنوان" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select onchange="ChangeUrl(1)" id="slc_category" class="form-control" >
+                                    <option value="">جستجو براساس دسته بندی</option>
+                                    @foreach (var item in ViewBag.categories)
+                                    {
+                                        <option value="@item.Id">@item.Title</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <button class="btn btn-primary" onclick="ChangeUrl(1)"><i class="fa fa-search"></i> جستجو</button>
+                                <button class="btn btn-danger" onclick="ClearSearch()"><i class="fa fa-eraser"></i> پاک کردن جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive" id="Grid_Div">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ردیف</th>
+                                    <th>عنوان</th>
+                                    <th>دسته بندی</th>
+                                    <th>تاریخ ثبت</th>
+                                    <th>بازدید</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_article">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul class="pagination" id="Div_Paging">
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Row -->
+</div>
+
+
+<div class="modal fade" id="Modal_Delete_Article" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="Delete" data-ajax="true" data-ajax-success="OnSuccessDelete" data-ajax-update="progress" method="post">
+                <div class="whz">
+                    <input name="id" id="txt_delete_id" />
+                </div>
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger"><i class="fa fa-trash-alt"></i> حذف مطلب</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>آیا برای حذف مطلب اطمینان دارید؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="$('#Modal_Delete_Article').modal('hide');"><i class="fa fa-times-circle"></i> خیر</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> بله</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

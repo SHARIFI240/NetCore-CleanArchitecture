@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Src/">
+    <Project Path="KarAfarin.Application/KarAfarin.Application.csproj" Id="0efd9a88-274f-4f1b-956c-2fd0673aa2f4" />
+    <Project Path="KarAfarin.Domain/KarAfarin.Domain.csproj" Id="26988d37-2de7-46d3-ad48-11e8332081ff" />
+    <Project Path="KarAfarin.Infrastructure/KarAfarin.Infrastructure.csproj" Id="eec5e0a5-b8d9-40b7-8ec1-026a9e670470" />
+    <Project Path="KarAfarin/KarAfarin.csproj" />
+  </Folder>
+</Solution>

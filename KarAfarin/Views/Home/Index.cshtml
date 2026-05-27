@@ -1,0 +1,258 @@
+﻿@{
+    ViewData["Title"] = "خانه";
+}
+
+<script>
+    $(document).ready(()=>{
+        GetLastArticles();
+        
+    })
+</script>
+
+<div class="page-content">
+
+    <div class="owl-carousel owl-theme row  owl-nav-fade owl-dot-white intro-slider animation-slider cols-1 ltr slider-desktop"
+         data-owl-options="{
+                        'items': 1,
+                        'nav': true,
+                        'dots': true,
+                        'loop': true,
+                        'responsive': {
+                            '992': {
+                                'nav': true
+                            }
+                        }
+                    }">
+        <div class="intro-slide1 banner banner-fixed">
+            <figure>
+                <picture>
+                    <source srcset="/NormalUser/images/slides/1.webp" type="image/webp">
+                    <img src="/NormalUser/images/slides/1.jpg" asp-append-version="true" loading="lazy" decoding="async" alt="بنر قالب وکیل الرعایا">
+                </picture>
+            </figure>
+        </div>
+        <div class="intro-slide1 banner banner-fixed">
+            <figure>
+                <picture>
+                    <source srcset="/NormalUser/images/slides/2.webp" type="image/webp">
+                    <img src="/NormalUser/images/slides/2.jpg" loading="lazy" asp-append-version="true" decoding="async" alt="بنر قالب وکیل الرعایا">
+                </picture>
+            </figure>
+        </div>
+    </div>
+
+
+    <section class="introduction-main-wrap">
+        <div class="container">
+            <div class=" introduction-main">
+                <div class="col-xs-12 introduction-contain">
+                    <h1 class="banner-title font-weight-bold mb-7 appear-animate fadeInUpShorter appear-animation-visible" data-animation-options="{'name': 'fadeInUpShorter', 'delay': '.3s'}" style="animation-duration: 1.2s;">
+                        درباره <span>خیریه کارآفرین خراسان رضوی</span> <br>
+                    </h1>
+                    <p>
+                        مجمع خیرین کارآفرین استان خراسان رضوی با هدف حمایت از کارآفرینی و اشتغال‌زایی و با استناد به مجوزهای رسمی از سال ۱۳۸۴ فعالیت خود را آغاز کرده است. این مجمع با شناسایی موانع اصلی کارآفرینی از جمله کمبود سرمایه، ضعف مهارت‌های بازاریابی و فقدان انگیزه در جوانان، تلاش می‌کند با بهره‌گیری از ظرفیت خیرین و روش‌های تأمین مالی متنوع، بستر مناسبی برای رشد کسب‌وکارها فراهم آورد. جامعه هدف این مجموعه شامل مخترعان، دانش‌آموختگان، مددجویان نهادهای حمایتی و تمامی جوانان جویای کار است. مأموریت مجمع حمایت مادی و معنوی از کارآفرینان و چشم‌انداز آن تبدیل شدن به سازمانی مؤثر در بهبود فضای کسب‌وکار می‌باشد. مجمع با رویکرد مدیریت جهادی و با تمرکز بر رفع تهدیدها و خلق فرصت‌های جدید، گام‌های اساسی در جهت ترویج فرهنگ کارآفرینی برمی‌دارد.
+                    </p>
+                    <a href="taking-turns.html" class="btn btn-gold btn-rounded mt-2 mb-1 appear-animate fadeInUpShorter appear-animation-visible" data-animation-options="{'name': 'fadeInUpShorter', 'delay': '.6s'}" style="animation-duration: 1.2s;">
+                        مشاهده افتخارات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-main counter-main section-main">
+        <picture>
+            <source srcset="/NormalUser/images/bg-1.webp" type="image/webp">
+            <img class="bg1-services" src="/NormalUser/images/bg-1.png" loading="lazy" decoding="async" alt="background1">
+        </picture>
+        <picture>
+            <source srcset="/NormalUser/images/bg-2.webp" type="image/webp">
+            <img class="bg2-services" src="/NormalUser/images/bg-2.png" loading="lazy" decoding="async" alt="background2">
+        </picture>
+        <div class="container appear-animate rtl text-right fadeIn appear-animation-visible" data-animation-options="{
+                     'delay': '.3s'
+                     }" style="animation-duration: 1.2s;">
+            <div class="mx-auto">
+                <div>
+                    <h2 class="title-inverse title-sm title-center mb-1">چگونه میتوانم کمک کنم؟</h2>
+                    <p class="title-inverse-custom-cross justify-content-center title-inverse-line title-inverse-right-line">
+                        <i class="fa fa-hand-holding-heart"></i>
+                    </p>
+                    <div class="row elements justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="element element-accordian">
+                                <div class="banner-content text-center ">
+                                    <i class="fa fa-user"></i>
+                                    <h3 class="banner-title text-navy font-weight-bold">
+                                        عضویت در سایت
+                                    </h3>
+                                    <p class="banner-subtitle">
+                                        با عضویت در سایت، از برنامه‌ها و گزارش‌ها مطلع شوید و فرصت‌های همکاری و همراهی را دنبال کنید.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="element element-accordian">
+                                <div class="banner-content text-center ">
+                                    <i class="fa fa-users-cog"></i>
+                                    <h3 class="banner-title text-navy font-weight-bold">
+                                        پنل داوطلبان
+                                    </h3>
+                                    <p class="banner-subtitle">
+                                        با اختصاص زمان یا تخصص خود، می‌توانید از طریق پنل داوطلبان در فعالیت‌های انسان‌دوستانه ما مشارکت کنید.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="element element-accordian">
+                                <div class="banner-content text-center ">
+                                    <i class="fa fa-cogs"></i>
+                                    <h3 class="banner-title text-navy font-weight-bold">
+                                        کارآفرینی
+                                    </h3>
+                                    <p class="banner-subtitle">
+                                        با آموزش و حمایت هدفمند، مسیر اشتغال پایدار را برای افراد مستعد فراهم می‌کنیم و زمینه‌ی شروع یک زندگی مستقل را می‌سازیم
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 row feature-carousel feature-figure" data-animation-options="{
+                           'name': '',
+                           'delay': '.6s'
+                           }" style="animation-duration: 1.2s;">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="450px" height="450px" viewBox="0 -1 70 72" class="float-svg" data-float-options="{&quot;delta&quot;:1,&amp;quotspeed&quot;:10,&amp;quotsize&quot;:2.2}" xml:space="preserve">
+                    <path fill-rule="evenodd" fill="#f8f8f8" clip-rule="evenodd" d="M49.591,12.717C37.556,8.485,38.429,2.068,27.712,0.635c-7.890,-1.060,-16.577,2.129,-18.961,15.643C6.076,31.445,0.033,38.148,0.000,48.177c-0.033,9.902,3.768,17.989,16.044,20.735c12.288,2.753,18.517,-1.609,27.712,-11.104c9.196,-9.511,19.782,-1.822,24.796,-17.123C72.674,28.096,68.490,19.285,49.591,12.717z">
+                              </path>
+                           </svg>
+                    <div class="col-xs-12 product-gallery">
+                        <div class="rotate-slider owl-carousel ltr owl-theme product-single-carousel owl-nav-arrow owl-loaded owl-drag" data-owl-options="{
+                                 'nav': true,
+                                 'dots': false,
+                                 'loop': true
+                                 }">
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage" style="transform: translate3d(-952px, 0px, 0px); transition: all; width: 3810px;">
+                                    <div class="owl-item cloned" style="width: 476.188px;">
+                                        <figure class="product-image">
+                                            <picture>
+                                                <source srcset="/NormalUser/Images/پروانه_فعایت.jpg" type="image/webp">
+                                                <img src="/NormalUser/Images/پروانه_فعایت.jpg" loading="lazy" decoding="async" alt="پروانه فعالیت">
+                                            </picture>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-nav"><button type="button" title="presentation" class="owl-prev"><i class="fa fa-arrow-left"></i></button><button type="button" title="presentation" class="owl-next"><i class="fa fa-arrow-right"></i></button></div>
+                            <div class="owl-dots disabled"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-md-12 col-xs-12 pl-lg-10 mt-10 feature-content d-flex flex-column d-lg-block appear-animate rtl text-right fadeIn appear-animation-visible" data-animation-options="{
+                           'name': 'fadeIn',
+                           'delay': '.6s'
+                           }" style="animation-duration: 1.2s;">
+                    <h3 class="feature-subtitle text-primary d-inline-block p-relative font-weight-normal">
+                        پروانه فعالیت
+                    </h3>
+                    <h2 class="feature-title text-primary font-secondary font-weight-normal lh-1">
+                        مجمع خیرین کارآفرین خراسان رضوی
+                    </h2>
+                    <p>
+
+                        پروانه فعالیت مجمع در اجرای اصل 138 قانون اساسی جمهوری اسلامی ایران و به استناد تصویب نامه
+                        شماره 27862 ت 31282 مورخ 1384/05/08 هیئت وزیران به شماره 5910 از سوی استانداری خراسان رضوی
+                        طی شماره 38/1/2396 مورخ 1404/10/20 صادر گردیده است.
+
+                    </p>
+
+                    <a href="/about-us" class="btn btn-primary">بیشتر </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Div_Posts" class="news-wrap section-main">
+        <div class="container">
+            <div class="owl-carousel owl-theme owl-rtl owl-loaded owl-drag" data-owl-options="{
+                                  'rtl':true,
+                                'items': 4,
+                                'margin': 20,
+                                'loop': false,
+                                'nav': false,
+                                'dots': true,
+                                'responsive': {
+                                    '0': {
+                                        'items': 1
+                                    },
+                                    '576': {
+                                        'items': 2
+                                    },
+                                    '768': {
+                                        'items': 3
+                                    },
+                                    '1200': {
+                                        'items': 4,
+                                        'dots': false
+                                    }
+                                }
+                            }">
+
+
+
+
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0.5s; width: 1200px;">
+                                           
+                    </div>
+                </div><div class="owl-nav disabled"><button type="button" title="presentation" class="owl-prev"><i class="fa fa-arrow-left"></i></button><button type="button" title="presentation" class="owl-next"><i class="fa fa-arrow-right"></i></button></div><div class="owl-dots disabled"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container appear-animate rtl text-right fadeIn appear-animation-visible" data-animation-options="{
+                    'delay': '.3s'
+                }" style="animation-duration: 1.2s;">
+        <section class="banners-group banners-group1">
+            <div class="banner-group2 align-items-center section-main">
+                <div class="banner-right-section skrollr appear-animate fadeIn appear-animation-visible" data-options="{&quot;data-bottom-top&quot;:&quot;transform:translateX(-20%);opacity: 0;&quot;,&quot;data-center&quot;:&quot;transform:translateX(0%);opacity: 1;&quot;}" style="animation-duration: 1.2s;">
+                    <div class="banner">
+                        <picture>
+                            <source srcset="/NormalUser/images/photo23780420731.jpg" type="image/webp">
+                            <img src="/NormalUser/images/photo23780420731.jpg" class="d-block" loading="lazy" decoding="async" alt="تبریک روز وکیل" width="680" height="346">
+                        </picture>
+                    </div>
+                </div>
+                <div class="banner-left-section bg-white mt-4 mt-md-0 Sundays">
+                    <div class="banner-content pr-3 pl-3 pr-lg-10 y-50 appear-animate fadeInUpShorter appear-animation-visible" data-animation-options="{'name': 'fadeInUpShorter', 'delay': '.4s'}" style="animation-duration: 1.2s;">
+                        <h4 class="banner-subtitle font-weight-normal text-body">
+                            یکشنبه های کارآفرینی
+                        </h4>
+                        <p style="text-align:justify" class="ls-normal mb-8 pl-5">
+                            یکشنبه‌های کارآفرینی سلسله نشست‌هایی با هدف ترویج فرهنگ کارآفرینی، انتقال تجربه‌های موفق و بررسی راهکارهای عملی برای توانمندسازی افراد و ایجاد اشتغال پایدار است. این برنامه فرصتی برای گفت‌وگو، هم‌اندیشی و شکل‌گیری ایده‌های مؤثر در مسیر توسعه فردی و اجتماعی فراهم می‌کند.
+                        </p>
+                    </div>
+                </div>
+                <div class="decoration deco-bottom deco-2">
+                    <picture>
+                        <source srcset="/NormalUser/images/slides/deco-2.webp" type="image/webp">
+                        <img src="/NormalUser/images/slides/deco-2.png" loading="lazy" decoding="async" alt="دکور" width="232" height="232">
+                    </picture>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<KarAfarin.Application.Features.Blog.Article.Queries.GetLastArticles.GetLastArticleDto>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="owl-item active" style="width: 280px; margin-left: 20px;">
+        <div class="post post-sm overlay-dark">
+            <figure class="post-media">
+                <a title="${item.title}" href="@item.Url">
+                    <picture>
+                        <source srcset="" type="image/webp">
+                        <img src="@item.Cover" loading="lazy" decoding="async" title="@item.Title" alt="@item.Title">
+                    </picture>
+                </a>
+            </figure>
+            <div class="post-details rtl">
+                <div class="post-meta">
+                    <i class="fa fa-user"></i> <a href="#" class="post-author">تحریریه</a><span class="divider"></span>
+                    <i class="fa fa-calendar-alt"></i> <a href="#" class="post-date FDate">@item.UpdateDate</a><span class="divider"></span>
+                    <i class="fa fa-eye"></i><a href="#" class="post-comment"><span>@item.ViewCount</span> بازدید</a>
+                </div>
+                <h5 class="post-title">
+                    <a title="@item.Title" href="@item.Url">@item.Title</a>
+                </h5>
+                <p class="post-content">
+                    @item.Summary
+                </p>
+                <a title="@item.Title" href="@item.Url" class="btn btn-link btn-underline text-gold">
+                    بیشتر<span> »</span>
+                </a>
+            </div>
+        </div>
+    </div>
+}

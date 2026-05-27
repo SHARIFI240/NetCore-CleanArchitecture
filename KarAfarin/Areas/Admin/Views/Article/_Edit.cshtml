@@ -1,0 +1,100 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model KarAfarin.ViewModels.Admin.Article.CreateUpdateArticleViewModel
+
+<partial name="_ValidationScriptsPartial" />
+
+<form asp-action="Update" data-ajax="true" autocomplete="off" data-ajax-success="OnSuccess" data-ajax-update="progress" method="post">
+
+    <div class="whz">
+        <input asp-for="Id" />
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fa fa-newspaper text-primary"></i> وبلاگ</h3>
+        </div>
+        <div class="card-body pb-2">
+
+            <div class="whz">
+                <input type="file" accept="image/*" id="inp_image" />
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>عنوان مطلب : <span class="text-danger">*</span></label>
+                        <input asp-for="Title" class="form-control mb-1" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>دسته بندی : <span class="text-danger">*</span></label>
+                        <select asp-for="CategoryRef" class="form-control">
+                            @foreach (var item in ViewBag.categories)
+                            {
+                                <option value="@item.Id">@item.Title</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryRef" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>کلمات کلیدی : <span class="text-danger">*</span></label>
+                        <input class="form-control mb-1" asp-for="Keywords" id="Keywords" />
+                        <span class="text-danger" asp-validation-for="Keywords"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>چکیده : <span class="text-danger">*</span></label>
+                        <input class="form-control mb-1" asp-for="Summary" />
+                        <span class="text-danger" asp-validation-for="Summary"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <textarea asp-for="Content" id="txt_article"></textarea>
+                        <span class="text-danger" asp-validation-for="Content"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label style="font-size: 10pt;" class="font-weight-bold text-primary">برای انتخاب تصویر مطلب کلیک کنید</label>
+                        <div class="custom-file text-right">
+                            <input type="file" accept="image/*" class="custom-file-input1 d-none" Id="Image">
+                            <label for="Image">
+                                <img style="width: 100px;height: 100px;cursor:pointer;" src="@Model.CoverImage" id="img1" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="card-footer">
+
+            <button type="submit" class="btn mr-1 btn-primary float-left">
+                <i class="fa fa-edit"></i> ویرایش
+            </button>
+
+
+            <button type="button" onclick="CreateNew()" class="btn btn-default  float-left">
+                <i class="fa fa-times-circle"></i> انصراف
+            </button>
+
+
+
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,34 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model KarAfarin.ViewModels.Admin.Category.CreateUpdateCategory
+
+<partial name="_ValidationScriptsPartial" />
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form asp-action="Update" data-ajax="true" data-ajax-success="OnSuccess" data-ajax-update="progress" method="post">
+
+            <div class="whz" >
+                <input asp-for="Id" />
+            </div>
+
+            <div class="modal-header">
+                <h5 class="modal-title text-primary"><i class="fa fa-edit"></i> ویرایش دسته بندی @Model.Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>عنوان دسته : <span class="text-danger">*</span></label>
+                        <input class="form-control mb-2" asp-for="Title" placeholder="برای نمونه : مذهبی" />
+                        <span class="text-danger" asp-validation-for="Title"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="$('#Modal_Create_Category').modal('hide');"><i class="fa fa-times-circle"></i> انصراف و بستن</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> ویرایش</button>
+            </div>
+
+        </form>
+    </div>
+</div>

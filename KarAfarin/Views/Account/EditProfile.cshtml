@@ -1,0 +1,64 @@
+﻿@model KarAfarin.ViewModels.Authentication.EditProfileViewModel
+
+
+<div class="page-content">
+
+    <section class="introduction-main-wrap" style="margin-top : 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <partial name="/Views/Shared/_ProfileLayout.cshtml" />
+                </div>
+                <div class="col-md-9">
+                    <div class="profile_box profie_box_data">
+
+                        <div class="box_header">
+                            <h6><i class="fa fa-user-edit"></i> ویرایش اطلاعات شخصی</h6>
+                        </div>
+
+                        <form asp-action="UpdateProfile" method="post" autocomplete="off">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="Name">نام : </label>
+                                        <input asp-for="FirstName" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="FirstName" ></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="Name">نام خانوادگی :</label>
+                                        <input asp-for="LastName" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="LastName"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="Name">شماره تماس (نام کاربری) :</label>
+                                        <input value="@ViewBag.phoneNumber" class="form-control" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="Name">پست الکترونیکی :</label>
+                                        <input asp-for="Email" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Email"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary float-left"><i class="fa fa-check-circle"></i> ویرایش اطلاعات شخصی</button>
+                                </div>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<partial name="_ValidationScriptsPartial" />

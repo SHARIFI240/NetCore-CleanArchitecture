@@ -1,0 +1,89 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "دسته بندی مطالب";
+    Layout = "~/Areas/Admin/Views/_AdminDashboard.cshtml";
+}
+<script asp-append-version="true" src="~/Admin/js/Pages/Category/Category.js"></script>
+
+<div class="main-container container-fluid">
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fa fa-tags text-primary"></i> دسته بندی محتوا</h3>
+                </div>
+                <div class="card-body pb-2">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" id="txt_title" autocomplete="off" onchange="ChangeUrl(1)" class="form-control" placeholder="جستجو بر اساس عنوان" />
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <button class="btn btn-primary" onclick="ChangeUrl(1)"><i class="fa fa-search"></i> جستجو</button>
+                                <button class="btn btn-danger" onclick="ClearSearch()"><i class="fa fa-eraser"></i> پاک کردن جستجو</button>
+                                <button class="btn btn-warning" onclick="NewCategory()"><i class="fa fa-plus-circle"></i> ایجاد دسته بندی جدید</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive" id="Grid_Div">
+                        <table class="table table-hover table-bordered table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ردیف</th>
+                                    <th scope="col">عنوان</th>
+                                    <th scope="col">عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_category">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul class="pagination" id="Div_Paging">
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Row -->
+</div>
+
+@* ==================== Modal ========================= *@
+                
+
+<div class="modal fade" id="Modal_Create_Category" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    
+</div>
+
+<div class="modal fade" id="Modal_Delete_Category" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="Delete" data-ajax="true" data-ajax-success="OnSuccess" data-ajax-update="progress" method="post">
+                <div class="whz">
+                    <input name="id" id="txt_delete_id" />
+                </div>
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger"><i class="fa fa-trash-alt"></i> حذف دسته بندی</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                 <p>آیا برای حذف دسته بندی اطمینان دارید؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="$('#Modal_Delete_Category').modal('hide');"><i class="fa fa-times-circle"></i> خیر</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> بله</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

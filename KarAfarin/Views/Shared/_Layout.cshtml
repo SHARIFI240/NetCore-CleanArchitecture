@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مجمع خیرین کارآفرین خراسان رضوی - @ViewData["Title"]</title>
+    <style>
+        body {
+            transition: opacity ease-in 0.2s;
+        }
+
+            body[unresolved] {
+                opacity: 0;
+                display: block;
+                overflow: hidden;
+                position: relative;
+            }
+    </style>
+    <link rel="icon" type="image/png" href="/NormalUser/images/icons/favicon.png" asp-append-version="true">
+    <link asp-append-version="true" rel="stylesheet" type="text/css" href="/Admin/fontawesome/fontawesome-all.min.css">
+    <link asp-append-version="true" href="/NormalUser/fonts/vazir/font-vazir-custom.css" rel="stylesheet">
+    <link asp-append-version="true" rel="stylesheet" type="text/css" href="/NormalUser/plugin-js/owl-carousel/owl.carousel.min.css">
+    <link asp-append-version="true" rel="stylesheet" type="text/css" href="/NormalUser/css/main-min.css">
+    <script asp-append-version="true" src="/NormalUser/plugin-js/jquery/jquery.min.js"></script>
+    <script asp-append-version="true" src="/NormalUser/plugin-js/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script asp-append-version="true" src="/NormalUser/js/main.min.js"></script>
+    <script src="~/lib/sweetalert2.js"></script>
+    <script src="~/Common/Common.js" asp-append-version="true"></script>
+    <script asp-append-version="true" src="~/NormalUser/js/Site.js"></script>
+</head>
+<body class="loaded">
+    <div class="bg-loader hide">
+        <div class="loader"></div>
+    </div>
+
+    <div class="page-wrapper">
+
+        <header class="header rtl text-right">
+            <div class="header-top ">
+                <div class="container">
+                    <div class="header-right">
+                        <p class="welcome-msg">محل قرارگیری تیتر آخرین اخبار از قوانین  </p>
+                    </div>
+                    <div class="header-left">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            string url = "/Account/Profile";
+
+                            if (User.IsInRole("Admin"))
+                            {
+                                url = "/Admin/Dashboard/Index";
+                            }
+
+                            <a href="@url" class="login-toggle link-to-tab">
+                                <i class="fa fa-user"></i>@User.FindFirst(System.Security.Claims.ClaimTypes.MobilePhone).Value
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/Account/Login" class="login-toggle link-to-tab">
+                                <i class="fa fa-user"></i>ورود
+                            </a>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="sticky-content-wrapper">
+                <div class="sticky-content-wrapper" style="height: 98px;">
+                    <div class="header-middle sticky-header fix-top sticky-content" style="">
+                        <div class="container">
+                            <div class="header-right">
+                                <a href="#" class="mobile-menu-toggle ml-0">
+                                    <i class="fa fa-bars-staggered"></i>
+                                </a>
+                                <a href="index.html" class="logo">
+                                    <picture>
+                                        <source srcset="/NormalUser/Images/logo.png" type="image/webp">
+                                        <img loading="lazy" decoding="async" width="154" height="43" src="/NormalUser/Images/logo.png" alt="لوگو قالب وکیل الرعایا">
+                                    </picture>
+                                </a>
+                                <nav class="main-nav">
+                                    <ul class="menu">
+                                        <li class="Page_Home">
+                                            <a href="/Home/Index">صفحه اصلی</a>
+                                        </li>
+                                        <li class="Page_Article">
+                                            <a href="/Article">مقالات</a>
+                                        </li>
+                                        <li class="Page_Gallery">
+                                            <a href="/Gallery">گالری تصاویر</a>
+                                        </li>
+                                        <li class="Page_AboutUs">
+                                            <a href="/About-Us">درباره ما</a>
+                                        </li>
+                                        <li class="Page_ContactUs">
+                                            <a href="/Contact-Us">ارتباط ما</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="header-left">
+                                <a href="tel:#" class="icon-box icon-box-side">
+                                    <div class="icon-box-icon ml-0 ml-lg-2">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="icon-box-content d-xs-show">
+                                        <h4 class="icon-box-title text-white">تلفن پاسخگو:</h4>
+                                        <p class="text-white"> 0912345678 </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            @RenderBody()
+        </main>
+
+
+
+
+        <footer class="footer appear-animate rtl text-right features-area counter-main fadeIn appear-animation-visible" style="animation-duration: 1.2s;">
+            <div class="footer-wrap container">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4">
+                                <a href="index.html" class="logo-footer">
+                                    <picture>
+                                        <source srcset="/NormalUser/Images/logo-footer.png" type="image/webp">
+                                        <img loading="lazy" decoding="async" src="/NormalUser/Images/logo-footer.png" alt="لوگو فوتر" width="154" height="43">
+                                    </picture>
+                                </a>
+                            </div>
+                            <div class="col-lg-8">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-middle">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="widget">
+                                    <p>مجمع خیرین کارآفرین خراسان رضوی</p>
+                                    <ul class="widget-body ">
+                                        <li>
+                                            <i class="fa fa-map-marked"></i>
+                                            <span> ارشاد خیابان مالک اشتر اپادانا 5  هجرت 4  کوچه توفیق 13 پلاک 93</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-phone"></i>
+                                            <a href="tel:02134567891">021-34567891</a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-envelope"></i>
+                                            <a href="mailto:info@karafarin.app">info@karafarin.app</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="widget">
+                                    <h6 class="widget-title mt-0">آخرین اخبار</h6>
+                                    <div class="recent-post">
+                                        <div class="recent-post-image">
+                                            <picture>
+                                                <source srcset="/NormalUser/images/news/01.webp" type="image/webp">
+                                                <img class="img-fluid" loading="lazy" decoding="async" src="/NormalUser/images/news/01.png" alt="تصویر نمونه مرتبط با خبر">
+                                            </picture>
+                                        </div>
+                                        <div class="recent-post-info">
+                                            <a href="news-single.html">عنوانی برای عکس </a>
+                                            <span class="post-date"><i class="fa fa-calendar-days"></i>2 آبان 1403</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-post">
+                                        <div class="recent-post-image">
+                                            <picture>
+                                                <source srcset="/NormalUser/images/news/02.webp" type="image/webp">
+                                                <img class="img-fluid" loading="lazy" decoding="async" src="/NormalUser/images/news/02.png" alt="تصویر نمونه مرتبط با خبر">
+                                            </picture>
+                                        </div>
+                                        <div class="recent-post-info">
+                                            <a href="news-single.html">عنوانی برای عکس </a>
+                                            <span class="post-date"><i class="fa fa-calendar-days"></i>2 آبان 1403</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-post">
+                                        <div class="recent-post-image">
+                                            <picture>
+                                                <source srcset="/NormalUser/images/news/03.webp" type="image/webp">
+                                                <img class="img-fluid" loading="lazy" decoding="async" src="/NormalUser/images/news/03.png" alt="تصویر نمونه مرتبط با خبر">
+                                            </picture>
+                                        </div>
+                                        <div class="recent-post-info">
+                                            <a href="news-single.html">عنوانی برای عکس </a>
+                                            <span class="post-date"><i class="fa fa-calendar-days"></i>2 آبان 1403</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="widget widget-instagram">
+                                    <h6 class="widget-title mt-0">صفحات اجتماعی</h6>
+                                    <div class="footer-info d-flex align-items-center justify-content-between">
+                                        <div class="social-links">
+                                            <a href="#" class="social-link">
+                                                <img class="social" src="/NormalUser/images/whatsapp.png">
+                                            </a>
+                                            <a href="#" class="social-link">
+                                                <img class="social" src="/NormalUser/images/instagram.png">
+                                            </a>
+                                            <a href="#" class="social-link">
+                                                <img class="social" src="/NormalUser/images/x.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <figure class="widget-body row">
+                                        <div class="nemad-box">
+                                            <picture>
+                                                <source srcset="/NormalUser/images/enemad.webp" type="image/webp">
+                                                <img loading="lazy" decoding="async" src="/NormalUser/images/enemad.png" alt="نماد اعتماد الکترونیک">
+                                            </picture>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container justify-content-center">
+                        <p class="copyright text-center">© کلیه حقوق وب سایت برای <a href="/Account/LoginWithPassword">مجمع خیرین کارآفرین خراسان رضوی</a> محفوظ می باشد  ؛ <a class="text-success" target="_blank" title="راهکاران پرداز یکتای شرق" href="https://rahkaran-pardaz.ir">راهکاران پرداز</a></p>
+                    </div>
+                </div>
+            </div>
+            <div _ngcontent-ydb-c0="" class="lines">
+                <div _ngcontent-ydb-c0="" class="line"></div>
+                <div _ngcontent-ydb-c0="" class="line"></div>
+                <div _ngcontent-ydb-c0="" class="line"></div>
+                <div _ngcontent-ydb-c0="" class="line"></div>
+                <div _ngcontent-ydb-c0="" class="line"></div>
+            </div>
+        </footer>
+        <div class="sticky-footer sticky-content fix-bottom rtl text-right" style="">
+
+            <a class="sticky-link" href="/Home/Index">صفحه اصلی</a>
+            <a class="sticky-link" href="/Article">مقالات</a>
+            <a class="sticky-link" href="/Gallery">گالری تصاویر</a>
+            <a class="sticky-link" href="/About-Us">درباره ما</a>
+            <a class="sticky-link" href="/Contact-Us">ارتباط ما</a>
+
+        </div>
+        <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fa fa-arrow-up"></i></a>
+        <div class="mobile-menu-wrapper">
+            <div class="mobile-menu-overlay">
+            </div>
+            <a class="mobile-menu-close" href="#"><i class="fa fa-xmark"></i></a>
+            <div class="mobile-menu-container scrollable">
+                <form action="#" class="input-wrapper">
+                    <input type="text" class="form-control" name="search" autocomplete="off" placeholder="جستجو ..." required="">
+                    <button class="btn btn-search" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+                <ul class="mobile-menu mmenu-anim">
+                    <li class="Page_Home">
+                        <a href="/Home/Index">صفحه اصلی</a>
+                    </li>
+                    <li class="Page_Article">
+                        <a href="/Article">مقالات</a>
+                    </li>
+                    <li class="Page_Gallery">
+                        <a href="/Gallery">گالری تصاویر</a>
+                    </li>
+                    <li class="Page_AboutUs">
+                        <a href="/About-Us">درباره ما</a>
+                    </li>
+                    <li class="Page_ContactUs">
+                        <a href="/Contact-Us">ارتباط ما</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="minipopup-area"></div>
+    </div>
+
+    <script asp-append-version="true" src="/NormalUser/plugin-js/owl-carousel/owl.carousel.min.js"></script>
+
+
+</body>
+</html>

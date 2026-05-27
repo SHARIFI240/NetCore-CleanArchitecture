@@ -1,0 +1,185 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<!-- saved from url=(0051)index.html -->
+<html lang="fa" dir="rtl"
+      style="--primary01:rgba(98, 89, 202, 0.1); --primary02:rgba(98, 89, 202, 0.2); --primary03:rgba(98, 89, 202, 0.3); --primary06:rgba(98, 89, 202, 0.6); --primary09:rgba(98, 89, 202, 0.9);">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <title>مدیریت سایت - @ViewData["Title"]</title>
+ 
+
+
+
+    <link rel="icon" type="image/png" href="/NormalUser/images/icons/favicon.png" asp-append-version="true">
+    <link asp-append-version="true" id="style" href="~/Admin/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- STYLE CSS -->
+    <link asp-append-version="true" href="~/Admin/css/style.css" rel="stylesheet">
+    <link asp-append-version="true" href="~/Admin/css/plugins.css" rel="stylesheet">
+    <!--- FONT-ICONS CSS -->
+    <link asp-append-version="true" href="~/Admin/css/icons.css" rel="stylesheet">
+    <script asp-append-version="true" src="~/Admin/js/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/lib/sweetalert2.js"></script>
+    <script src="~/Common/Common.js" asp-append-version="true"></script>
+    <script src="~/Admin/js/Admin.js" asp-append-version="true" ></script>
+
+
+    <!-- INTERNAL Switcher css -->
+    <meta http-equiv="imagetoolbar" content="no">
+</head>
+<body class="app sidebar-mini rtl">
+
+    <div class="loading">
+    </div>
+
+    <div class="horizontalMenucontainer">
+
+        <div id="global-loader" style="display: none;">
+            <img src="~/Admin/images/loader.svg" class="loader-img"
+                 alt="Loader">
+        </div> <!-- /GLOBAL-LOADER --> <!-- PAGE -->
+        <div class="page">
+            <div class="page-main">
+                <!-- app-Header -->
+                <div class="app-header header sticky" style="margin-bottom: -74px;">
+                    <div class="container-fluid main-container">
+                        <div class="d-flex align-items-center">
+                            <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);">
+                                <i class="fa fa-bars"></i>
+                            </a>
+
+                            <div class="responsive-logo">
+                                <a href="/Admin/Dashboard/Index" class="header-logo">
+                                    <img src="/NormalUser/Images/logo-dark.png" class="mobile-logo logo-1" alt="logo">
+                                    <img src="~/Admin/images/brand/logo.png" class="mobile-logo dark-logo-1" alt="logo">
+                                </a>
+                            </div>
+                            <!-- sidebar-toggle-->
+                            <a class="logo-horizontal " href="/Admin/Dashboard/Index">
+                                <img src="~/Admin/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="/NormalUser/Images/logo-dark.png" class="header-brand-img light-logo1" alt="logo">
+                            </a>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="jumps-prevent" style="padding-top: 74px;"></div>
+                <!-- /app-Header --> <!--APP-SIDEBAR-->
+                <div class="sticky is-expanded" style="margin-bottom: -74px;">
+                    <div class="app-sidebar__overlay active" data-bs-toggle="sidebar"></div>
+                    <aside class="app-sidebar open ps ps--active-y">
+                        <div class="side-header">
+                            <a class="header-brand1" href="/Admin/Dashboard/Index">
+                                <img src="~/Admin/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="~/Admin/images/brand/logo-1.png" class="header-brand-img toggle-logo" alt="logo">
+                                <img src="~/Admin/images/brand/logo-2.png" class="header-brand-img light-logo" alt="logo">
+                                <img src="/NormalUser/Images/logo-dark.png" class="header-brand-img light-logo1" alt="logo">
+                            </a> <!-- LOGO -->
+                        </div>
+                        <div class="main-sidemenu is-expanded">
+                            <div class="slide-left disabled active is-expanded" id="slide-left">
+                                <svg>
+                                    xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                                </svg>
+                            </div>
+                            <ul class="side-menu open" style="margin-right: 0px; margin-left: 0px;">
+
+                                <li class="slide">
+                                    <a class="side-menu__item" id="Page_Dashboard" href="/Admin/Dashboard/Index">
+                                        <i class="side-menu__icon fa fa-home"></i><span class="side-menu__label"> داشبورد</span>
+                                    </a>
+                                </li>
+
+                                <li class="sub-slide">
+                                    <a class="sub-side-menu__item" id="Page_Article" data-bs-toggle="sub-slide" href="javascript:void(0);">
+                                        <i class="side-menu__icon fa fa-newspaper"></i>
+                                        <span class="sub-side-menu__label">مقالات</span>
+                                        <i class="sub-angle fa fa-angle-right"></i>
+                                    </a>
+                                    <ul class="sub-slide-menu">
+                                        <li><a href="/Admin/Article/Index" class="sub-slide-item">محتوا</a></li>
+                                        <li><a href="/Admin/Category/Index" class="sub-slide-item">دسته بندی</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="slide">
+                                    <a class="side-menu__item" id="Page_Users" href="/Admin/Users/Index">
+                                        <i class="side-menu__icon fa fa-users"></i><span class="side-menu__label"> کاربران</span>
+                                    </a>
+                                </li>
+
+                                <li class="slide">
+                                    <a class="side-menu__item"  href="/Account/PanelChangePassword">
+                                        <i class="side-menu__icon fa fa-key"></i><span class="side-menu__label"> تغییر رمز عبور</span>
+                                    </a>
+                                </li>
+
+                                <li class="slide">
+                                    <a class="side-menu__item" href="/Account/LogOut">
+                                        <i class="side-menu__icon fa fa-power-off"></i><span class="side-menu__label">خروج از سیستم</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <div class="slide-right" id="slide-right">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                                     width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                        </div>
+                        <div class="ps__rail-y" style="top: 0px; height: 717px; right: 0px;width: 7px;">
+                            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 542px;"></div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="jumps-prevent" style="padding-top: 74px;"></div> <!--/APP-SIDEBAR--> <!--app-content open-->
+                <div class="main-content app-content mt-0">
+                    <div class="side-app">
+                        <!-- CONTAINER -->
+                        @RenderBody()
+
+                    </div>
+                </div> <!--app-content end-->
+            </div>
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-md-12 col-sm-12 text-center">
+                            تمامی حقوق معنوی متعلق به مجمع خیرین کارآفرین خراسان رضوی می باشد. ساخته شده توسط <a href="https://rahkaran-pardaz.ir"  target="_blank" >راهکاران پرداز</a>
+                        </div>
+                    </div>
+                </div>
+            </footer> <!-- FOOTER END -->
+        </div> <!-- BACK-TO-TOP --> <a href="index.html#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+        <!-- JQUERY JS -->
+
+        <script asp-append-version="true" src="~/Admin/plugins/bootstrap/js/popper.min.js"></script>
+        <script asp-append-version="true" src="~/Admin/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script asp-append-version="true" src="~/Admin/plugins/select2/select2.full.min.js"></script>
+        <script asp-append-version="true" src="~/Admin/plugins/sidemenu/sidemenu.js"></script>
+        <script asp-append-version="true" src="~/Admin/plugins/sidebar/sidebar.js"></script>
+        <script asp-append-version="true" src="~/Admin/plugins/p-scroll/perfect-scrollbar.js"></script>
+        <script asp-append-version="true" src="~/Admin/plugins/p-scroll/pscroll.js"></script>
+        <script asp-append-version="true" src="~/Admin/plugins/p-scroll/pscroll-1.js"></script>
+        
+    </div>
+
+
+
+</body>
+
+</html>

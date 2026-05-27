@@ -1,0 +1,76 @@
+﻿@model KarAfarin.ViewModels.Authentication.VerifyCodeViewModel
+@{
+    ViewData["Title"] = "تایید شماره تلفن";
+}
+
+<script>
+    $(document).ready(()=>{
+        CreateTimer("2:00",endFunction);
+    })
+
+    const NewCode = () => {
+        $.ajax({
+            type: "POST",
+            url: "/Account/GetNewCode?PhoneNumber=" + $("#PhoneNumber").val(),
+            contentType: "application/json",
+            success: function (result) {
+                $("#GetNewCode").hide("slow");
+                if (result === operationResult.success) {
+                    CreateTimer(endFunction);
+                    notification(result.status, result.message);
+                } else {
+                    notification("error", "کد ارسال نشد لطفا دوباره تلاش کنید");
+                }
+            }
+        });
+    }
+    const endFunction = () =>{
+        $('#Timer').html("00:00");
+        $('#Timer').hide("slow");
+        $("#GetNewCode").show("slow");
+    }
+
+</script>
+
+<div class="page-content" id="LoginAndVerify">
+    <section class="section-main appear-animate mt-10">
+        <form asp-action="VerifyCode" autocomplete="off" method="post">
+            
+            <div class="whz">
+                <input asp-for="PhoneNumber" value="@ViewBag.phoneNumber" />
+            </div>
+
+            
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <div class="box">
+                            <div class="col-md-12">
+                                <h1>تایید شماره تماس</h1>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>کد ارسال شده : </label>
+                                    <input asp-for="VerifyCode" class="form-control" placeholder="کد تایید ... " />
+                                    <span asp-validation-for="VerifyCode" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-4 pb-4">
+                                <span id="Timer" class="float-right font-weight-bold">2:00</span>
+                                <a class="float-left" id="GetNewCode" style="display : none" onclick="NewCode()" href="#">درخواست کد جدید</a>
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-rounded"><i class="fa fa-paper-plane" ></i> تایید کد</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+<partial name="_ValidationScriptsPartial" />
